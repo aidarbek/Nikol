@@ -1,0 +1,60 @@
+<html>
+	<head>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    	<script src="p5.min.js">
+		</script>
+		<script type="text/javascript">
+			var N = 7;//Number of Igor Nikolaev's pictures(maybe increased)
+			var a = [0];//Array of image objects
+			function getRandom(min, max)
+			{
+			  	return Math.floor(Math.random() * (max - min + 1)) + min;
+			}
+			function preload()
+			{
+				for(var i = 1; i <= N; i++)
+				{
+					a.push(0);
+					a[i] = loadImage("img("+i+").png");
+					
+					//alert(a[i].width + " " + a[i].height);
+					//break;
+				}
+			}
+			function setup()
+			{
+				createCanvas(windowWidth, windowHeight);
+				//var img = loadImage("img(1).jpg");
+  				//image(img, 0, 0);
+			}
+			function draw()
+			{
+				if(mouseIsPressed)
+				{
+					var x = pmouseX, y = pmouseY;
+					if(x > 0 && y > 0)
+					{
+						//alert("HI");
+						var pos = getRandom(1, N);
+						var img = a[pos];
+						//console.log(pos);
+						image(img, x - int(img.width / 2), y - int(img.height / 2));
+						//console.log(img);
+					}
+				}
+			}
+			function Clear()
+			{
+				clear();
+			}
+		</script>
+	</head>
+	<body>
+		By <a href="idarbek.com">idarbek</a>
+		<br>
+		Press anywhere and watch what happens...
+		<button onclick = "Clear()">
+			Clear
+		</button>
+	</body>
+</html>
