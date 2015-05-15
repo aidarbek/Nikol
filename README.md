@@ -12,7 +12,7 @@ Just upload this project on any hosting or server. It does not need any addition
 
 It is easy! Create a few photos of the new person in png format.
 
-Call them like this: 1.png, 2png, 3.png, etc.
+Call them in ascending order like: 1.png, 2png, 3.png, 4.png, etc.
 
 There is an array on the 9th line in index.html, called "people". Just add a new object to that array,
 
@@ -30,7 +30,7 @@ with the following format:
 
 Where:
 
-%SOME FOLDER NAME% - the folder, in which images of the new person are located
+%SOME FOLDER NAME% - the folder, in which images of the new person are located(always must be in the same directory)
 
 %PERSON's FULL NAME% - full name of the new person. (Nicolas Cage, ex)
 
