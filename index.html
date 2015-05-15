@@ -4,28 +4,49 @@
     	<script src="p5.min.js">
 		</script>
 		<script type="text/javascript">
-			var N = 7;//Number of Igor Nikolaev's pictures(maybe increased)
-			var a = [0];//Array of image objects
+			var img = {};//Array of image objects
+			var current = 0;
+			var people = [
+				{
+					folder: "nikol",
+					name: "Igor Nikolaev",
+					photos_num: 7
+				},
+				{
+					folder: "cage",
+					name: "Nicolas Cage",
+					photos_num: 0
+				}
+			];
 			function getRandom(min, max)
 			{
 			  	return Math.floor(Math.random() * (max - min + 1)) + min;
 			}
 			function preload()
 			{
-				for(var i = 1; i <= N; i++)
+				for(var i = 0; i < people.length; i++)
 				{
-					a.push(0);
-					a[i] = loadImage("img("+i+").png");
-					
-					//alert(a[i].width + " " + a[i].height);
-					//break;
+					var person = people[i];
+					img[person.name] = [0];
+					for(var j = 1; j <= person.photos_num; j++)
+					{
+						img[person.name].push(loadImage(person.folder+"/"+j+".png"));
+						//img[person.name][j] = loadImage(person.folder+"/"+j+".png");
+					}
 				}
 			}
 			function setup()
 			{
 				createCanvas(windowWidth, windowHeight);
-				//var img = loadImage("img(1).jpg");
-  				//image(img, 0, 0);
+				var list = document.getElementById('list');
+				var str = '<select onchange="changeCurrent(this)">';
+				for(var i = 0; i < people.length; i++)
+				{
+					var person = people[i];
+					str += '<option>'+person.name+'</option>';
+				}
+				str += '</select>';
+				list.innerHTML = str;
 			}
 			function draw()
 			{
@@ -34,12 +55,10 @@
 					var x = pmouseX, y = pmouseY;
 					if(x > 0 && y > 0)
 					{
-						//alert("HI");
-						var pos = getRandom(1, N);
-						var img = a[pos];
-						//console.log(pos);
-						image(img, x - int(img.width / 2), y - int(img.height / 2));
-						//console.log(img);
+						var person = people[current];
+						var num = getRandom(1, person.photos_num);
+						var tmp = img[person.name][num];
+						image(tmp, x - int(tmp.width / 2), y - int(tmp.height / 2));
 					}
 				}
 			}
@@ -47,12 +66,20 @@
 			{
 				clear();
 			}
+			function changeCurrent(el)
+		  	{
+		  		current = el.selectedIndex;
+		  	}
 		</script>
 	</head>
 	<body>
-		By <a href="idarbek.com">idarbek</a>
+		Made by <a href="idarbek.com">idarbek</a>
 		<br>
-		Press anywhere and watch what happens...
+		Press anywhere below and see what happens...
+		<br>
+		Choose person:
+		<span id="list">
+		</span>
 		<button onclick = "Clear()">
 			Clear
 		</button>
