@@ -30,7 +30,7 @@ with the following format:
 
 Where:
 
-%SOME FOLDER NAME% - the folder, in which images of the new person are located(always must be in the same directory)
+%SOME FOLDER NAME% - the folder, in which images of the new person are located (must be in the same directory)
 
 %PERSON's FULL NAME% - full name of the new person. (Nicolas Cage, ex)
 
