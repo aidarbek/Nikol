@@ -14,6 +14,8 @@ It is easy! Create a few photos of the new person in png format.
 
 Call them in ascending order like: 1.png, 2png, 3.png, 4.png, etc.
 
+I recommend making 100x145 sized photos
+
 There is an array on the 9th line in index.html, called "people". Just add a new object to that array,
 
 with the following format:
