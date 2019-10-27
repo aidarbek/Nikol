@@ -7,6 +7,7 @@ Now available:
 # Installation
 
 Just upload this project on any hosting or server. It does not need any additional setups. 
+Locally: open index.html in any browser.
 
 # How to add a new person?
 
